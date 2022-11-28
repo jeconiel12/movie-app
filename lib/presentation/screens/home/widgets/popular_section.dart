@@ -60,7 +60,8 @@ class _PopularSection extends StatelessWidget {
         return _MovieTile(
           id: movies[index].id!,
           title: movies[index].title,
-          posterPath: '$imageUrlSmall${movies[index].posterPath}',
+          posterPath:
+              '${TMDBUrlConfig.imageUrlSmall}${movies[index].posterPath}',
           vote: movies[index].vote,
           genres: movies[index].genres,
         );

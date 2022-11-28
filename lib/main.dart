@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hive/hive.dart';
 
 import 'package:path_provider/path_provider.dart';
@@ -14,6 +15,7 @@ void main() async {
 
 Future<void> setup() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: 'env/.env');
   configureInjection();
   final directory = await getApplicationDocumentsDirectory();
   Hive.init(directory.path);

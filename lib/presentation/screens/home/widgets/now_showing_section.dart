@@ -64,7 +64,8 @@ class _NowShowingSection extends StatelessWidget {
         return _MovieCard(
           id: movies[index].id!,
           title: movies[index].title,
-          posterPath: '$imageUrlMedium${movies[index].posterPath}',
+          posterPath:
+              '${TMDBUrlConfig.imageUrlMedium}${movies[index].posterPath}',
           vote: movies[index].vote,
         );
       },

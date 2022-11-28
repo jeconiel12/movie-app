@@ -66,7 +66,8 @@ class _MovieDetailCasts extends StatelessWidget {
                   children: state.movie.casts
                       .map(
                         (cast) => _CastCard(
-                          imagePath: '$imageUrlMedium${cast.imagePath}',
+                          imagePath:
+                              '${TMDBUrlConfig.imageUrlMedium}${cast.imagePath}',
                           name: cast.name,
                         ),
                       )

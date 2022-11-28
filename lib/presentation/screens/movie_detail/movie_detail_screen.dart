@@ -5,7 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 import '../../../application/movie_detail/movie_detail_cubit.dart';
-import '../../../core/constants.dart';
+import '../../../core/config/tmdb_url_config.dart';
 import '../../../core/constants/theme_color.dart';
 import '../../../core/constants/theme_text.dart';
 import '../../../di/injection.dart';

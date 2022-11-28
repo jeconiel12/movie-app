@@ -37,7 +37,7 @@ class _MovieTile extends StatelessWidget {
               child: AspectRatio(
                 aspectRatio: 143 / 212,
                 child: CachedNetworkImage(
-                  imageUrl: '$imageUrlSmall$posterPath',
+                  imageUrl: '${TMDBUrlConfig.imageUrlLarge}$posterPath',
                   imageBuilder: (context, imageProvider) {
                     return Container(
                       decoration: BoxDecoration(

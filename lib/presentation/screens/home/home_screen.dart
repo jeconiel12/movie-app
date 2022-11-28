@@ -2,11 +2,11 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:movie_app/core/config/tmdb_url_config.dart';
 
 import '../../../application/genres/genres_cubit.dart';
 import '../../../application/home/now_showing/now_showing_cubit.dart';
 import '../../../application/home/popular/popular_cubit.dart';
-import '../../../core/constants.dart';
 import '../../../core/constants/theme_color.dart';
 import '../../../core/constants/theme_text.dart';
 import '../../../di/injection.dart';
