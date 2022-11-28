@@ -1,8 +1,10 @@
 import 'package:hive/hive.dart';
-import 'package:movie_app/domain/movie/genre/genre_model.dart';
-import 'package:movie_app/domain/movie/genre/genre_table.dart';
-import 'package:movie_app/infrastructure/core/custom_exception.dart';
-import 'package:movie_app/infrastructure/movie/genre/genre_dto.dart';
+import 'package:injectable/injectable.dart';
+
+import '../../domain/movie/genre/genre_model.dart';
+import '../../domain/movie/genre/genre_table.dart';
+import '../core/custom_exception.dart';
+import 'genre/genre_dto.dart';
 
 abstract class IMovieLocal {
   Future<bool> isGenresCached();
@@ -10,9 +12,8 @@ abstract class IMovieLocal {
   Future<void> saveGenres(List<GenreModel> genres);
 }
 
+@LazySingleton(as: IMovieLocal)
 class MovieLocal implements IMovieLocal {
-  const MovieLocal();
-
   @override
   Future<bool> isGenresCached() async {
     try {
@@ -30,8 +31,9 @@ class MovieLocal implements IMovieLocal {
       final genreKeys = genreBox.keys;
       final List<GenreTable> genreTables =
           genreKeys.map((key) => genreBox.get(key) as GenreTable).toList();
-      final List<GenreModel> genres =
-          genreTables.map((table) => GenreDto.fromTable(table).toModel()).toList();
+      final List<GenreModel> genres = genreTables
+          .map((table) => GenreDto.fromTable(table).toModel())
+          .toList();
       return genres;
     } catch (error) {
       throw LocalException(error.toString());

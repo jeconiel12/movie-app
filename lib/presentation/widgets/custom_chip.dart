@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/presentation/theme/theme_color.dart';
-import 'package:movie_app/presentation/theme/theme_text.dart';
+
+import '../../core/constants/theme_color.dart';
+import '../../core/constants/theme_text.dart';
 
 class CustomChip extends StatelessWidget {
   final String genre;

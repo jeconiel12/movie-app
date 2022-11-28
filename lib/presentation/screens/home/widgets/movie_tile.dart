@@ -25,7 +25,8 @@ class _MovieTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.pushNamed(context, MovieDetailScreen.routeName, arguments: id),
+      onTap: () => Navigator.pushNamed(context, MovieDetailScreen.routeName,
+          arguments: id),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Row(
@@ -76,7 +77,8 @@ class _MovieTile extends StatelessWidget {
                     spacing: 8,
                     runSpacing: 8,
                     children: genres
-                        .map((id) => CustomChip(genre: context.read<GenresCubit>().genre(id)))
+                        .map((id) => CustomChip(
+                            genre: context.read<GenresCubit>().genre(id)))
                         .toList(),
                   ),
                   const SizedBox(height: 8),
@@ -119,7 +121,8 @@ class _MovieTileLoading extends StatelessWidget {
                 Wrap(
                   spacing: 8,
                   runSpacing: 8,
-                  children: List.generate(3, (_) => const CustomShimmer(height: 14, width: 40)),
+                  children: List.generate(
+                      3, (_) => const CustomShimmer(height: 14, width: 40)),
                 ),
                 const SizedBox(height: 8),
               ],

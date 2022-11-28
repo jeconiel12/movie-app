@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:movie_app/domain/movie/genre/genre_model.dart';
-import 'package:movie_app/domain/movie/genre/genre_table.dart';
+
+import '../../../domain/movie/genre/genre_model.dart';
+import '../../../domain/movie/genre/genre_table.dart';
 
 part 'genre_dto.freezed.dart';
 

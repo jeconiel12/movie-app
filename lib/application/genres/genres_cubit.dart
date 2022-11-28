@@ -1,13 +1,16 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:movie_app/domain/failure/failure_model.dart';
-import 'package:movie_app/domain/movie/genre/genre_model.dart';
-import 'package:movie_app/domain/movie/i_movie_repository.dart';
+import 'package:injectable/injectable.dart';
+
+import '../../domain/failure/failure_model.dart';
+import '../../domain/movie/genre/genre_model.dart';
+import '../../domain/movie/i_movie_repository.dart';
 
 part 'genres_state.dart';
 part 'genres_cubit.freezed.dart';
 
+@injectable
 class GenresCubit extends Cubit<GenresState> {
   final IMovieRepository _movieRepository;
 

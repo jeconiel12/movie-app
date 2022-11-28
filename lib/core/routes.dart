@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/presentation/screens/home/home_screen.dart';
-import 'package:movie_app/presentation/screens/movie_detail/movie_detail_screen.dart';
-import 'package:movie_app/presentation/screens/splash/splash_page.dart';
+
+import '../presentation/screens/home/home_screen.dart';
+import '../presentation/screens/movie_detail/movie_detail_screen.dart';
+import '../presentation/screens/splash/splash_page.dart';
 
 Map<String, WidgetBuilder> get routes {
   return {

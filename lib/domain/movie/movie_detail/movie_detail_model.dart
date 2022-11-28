@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:movie_app/domain/movie/cast/cast_model.dart';
-import 'package:movie_app/domain/movie/genre/genre_model.dart';
+
+import '../cast/cast_model.dart';
+import '../genre/genre_model.dart';
 
 part 'movie_detail_model.freezed.dart';
 

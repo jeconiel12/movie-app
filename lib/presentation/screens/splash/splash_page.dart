@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:movie_app/application/core/genres/genres_cubit.dart';
-import 'package:movie_app/presentation/screens/home/home_screen.dart';
-import 'package:movie_app/presentation/theme/theme_text.dart';
+
+import '../../../application/genres/genres_cubit.dart';
+import '../../../core/constants/theme_text.dart';
+import '../home/home_screen.dart';
 
 class SplashPage extends StatelessWidget {
   static const String routeName = '/';
@@ -15,13 +16,16 @@ class SplashPage extends StatelessWidget {
     return MultiBlocListener(
       listeners: [
         BlocListener<GenresCubit, GenresState>(
-          listenWhen: (p, c) => p.isGenresLoaded != c.isGenresLoaded && c.isGenresLoaded,
+          listenWhen: (p, c) =>
+              p.isGenresLoaded != c.isGenresLoaded && c.isGenresLoaded,
           listener: (context, state) {
-            Navigator.pushNamedAndRemoveUntil(context, HomeScreen.routeName, (route) => false);
+            Navigator.pushNamedAndRemoveUntil(
+                context, HomeScreen.routeName, (route) => false);
           },
         ),
         BlocListener<GenresCubit, GenresState>(
-          listenWhen: (p, c) => p.isGenresFailure != c.isGenresFailure && c.isGenresFailure,
+          listenWhen: (p, c) =>
+              p.isGenresFailure != c.isGenresFailure && c.isGenresFailure,
           listener: (context, state) {
             // SystemChannels.platform.invokeMethod('SystemNavigator.pop');
           },

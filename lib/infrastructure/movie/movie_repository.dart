@@ -1,16 +1,20 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:movie_app/domain/movie/genre/genre_model.dart';
-import 'package:movie_app/domain/failure/failure_model.dart';
-import 'package:dartz/dartz.dart';
-import 'package:movie_app/domain/movie/i_movie_repository.dart';
-import 'package:movie_app/domain/movie/movie_model.dart';
-import 'package:movie_app/domain/movie/movie_detail/movie_detail_model.dart';
-import 'package:movie_app/infrastructure/core/custom_exception.dart';
-import 'package:movie_app/infrastructure/movie/movie_local_data.dart';
-import 'package:movie_app/infrastructure/movie/movie_remote_data.dart';
 
+import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
+
+import '../../domain/failure/failure_model.dart';
+import '../../domain/movie/genre/genre_model.dart';
+import '../../domain/movie/i_movie_repository.dart';
+import '../../domain/movie/movie_detail/movie_detail_model.dart';
+import '../../domain/movie/movie_model.dart';
+import '../core/custom_exception.dart';
+import 'movie_local_data.dart';
+import 'movie_remote_data.dart';
+
+@LazySingleton(as: IMovieRepository)
 class MovieRepository implements IMovieRepository {
   final IMovieLocal _movieLocal;
   final IMovieRemote _movieRemote;

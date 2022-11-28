@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:movie_app/presentation/theme/theme_color.dart';
-import 'package:movie_app/presentation/theme/theme_text.dart';
+
+import '../../core/constants/theme_color.dart';
+import '../../core/constants/theme_text.dart';
 
 class CustomVote extends StatelessWidget {
   final double vote;

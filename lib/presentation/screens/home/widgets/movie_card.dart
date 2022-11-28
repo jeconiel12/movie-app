@@ -17,7 +17,8 @@ class _MovieCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.pushNamed(context, MovieDetailScreen.routeName, arguments: id),
+      onTap: () => Navigator.pushNamed(context, MovieDetailScreen.routeName,
+          arguments: id),
       child: SizedBox(
         width: MediaQuery.of(context).size.width * 0.38,
         child: Column(

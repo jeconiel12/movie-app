@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/application/core/genres/genres_cubit.dart';
-import 'package:movie_app/core/get_it.dart';
-import 'package:movie_app/presentation/core/routes.dart';
+
+import '../../application/genres/genres_cubit.dart';
+import '../../core/routes.dart';
+import '../../di/injection.dart';
 
 class MovieApp extends StatefulWidget {
   const MovieApp({Key? key}) : super(key: key);

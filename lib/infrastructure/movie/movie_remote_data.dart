@@ -1,14 +1,16 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:movie_app/domain/movie/genre/genre_model.dart';
-import 'package:movie_app/domain/movie/movie_detail/movie_detail_model.dart';
-import 'package:movie_app/domain/movie/movie_model.dart';
-import 'package:movie_app/core/constants.dart';
-import 'package:movie_app/infrastructure/core/custom_exception.dart';
-import 'package:movie_app/infrastructure/movie/genre/genre_dto.dart';
-import 'package:movie_app/infrastructure/movie/movie_detail/movie_detail_dto.dart';
-import 'package:movie_app/infrastructure/movie/movie_dto.dart';
+import 'package:injectable/injectable.dart';
+
+import '../../core/constants.dart';
+import '../../domain/movie/genre/genre_model.dart';
+import '../../domain/movie/movie_detail/movie_detail_model.dart';
+import '../../domain/movie/movie_model.dart';
+import '../core/custom_exception.dart';
+import 'genre/genre_dto.dart';
+import 'movie_detail/movie_detail_dto.dart';
+import 'movie_dto.dart';
 
 abstract class IMovieRemote {
   Future<List<MovieModel>> getPopular();
@@ -17,9 +19,8 @@ abstract class IMovieRemote {
   Future<List<GenreModel>> getGenresRemote();
 }
 
+@LazySingleton(as: IMovieRemote)
 class MovieRemote implements IMovieRemote {
-  const MovieRemote();
-
   @override
   Future<List<MovieModel>> getPopular() async {
     final url = Uri.parse('$baseUrl/movie/popular?api_key=$apiKey');
@@ -27,7 +28,9 @@ class MovieRemote implements IMovieRemote {
     final data = json.decode(response.body);
 
     if (response.statusCode == 200) {
-      return (data['results'] as List).map((json) => MovieDto.fromJson(json).toModel()).toList();
+      return (data['results'] as List)
+          .map((json) => MovieDto.fromJson(json).toModel())
+          .toList();
     } else {
       throw RemoteException(data['status_message'] ?? 'Something went wrong');
     }
@@ -40,7 +43,9 @@ class MovieRemote implements IMovieRemote {
     final data = json.decode(response.body);
 
     if (response.statusCode == 200) {
-      return (data['results'] as List).map((json) => MovieDto.fromJson(json).toModel()).toList();
+      return (data['results'] as List)
+          .map((json) => MovieDto.fromJson(json).toModel())
+          .toList();
     } else {
       throw RemoteException(data['status_message'] ?? 'Something went wrong');
     }
@@ -67,8 +72,9 @@ class MovieRemote implements IMovieRemote {
     final data = json.decode(response.body);
 
     if (response.statusCode == 200) {
-      final genres =
-          (data['genres'] as List).map((json) => GenreDto.fromJson(json).toModel()).toList();
+      final genres = (data['genres'] as List)
+          .map((json) => GenreDto.fromJson(json).toModel())
+          .toList();
       return genres;
     } else {
       throw RemoteException(data['status_message'] ?? 'Something went wrong');
